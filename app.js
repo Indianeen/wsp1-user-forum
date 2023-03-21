@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nunjucks = require('nunjucks');
+const dotenv = require('dotenv')
 
 const indexRouter = require('./routes/index');
 

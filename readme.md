@@ -11,7 +11,7 @@ touch .gitignore
 git add .
 git commit -m "🎉"
 git branch -M main
-touch app.ks
+touch app.js
 mkdir bin
 ```
 
