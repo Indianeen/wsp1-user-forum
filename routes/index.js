@@ -9,7 +9,7 @@ const { post } = require('../app.js');
 /* GET home page. */
 
 router.get('/', function (req, res) {
-    return res.json({ msg: 'Hello World' });
+    res.render('index.njk', { title: 'ForumX'});
 });
 
 module.exports = router;
@@ -129,3 +129,19 @@ router.get('/crypt/:pwd', async function (req, res, next) {
         return res.json({ hash });
     });
 });
+
+//Innan forum
+
+router.get('/forum', async function (req, res, next) {
+
+})
+
+//Efter forum
+
+//Innan post
+
+router.get('/newpost', async function (req, res, next) {
+    res.render('newpost.njk', { title: 'Create new post'})
+})
+
+//Efter post
