@@ -15,4 +15,16 @@ Vad har du gjort idag?
 
     Jag har skrivit login och råkat skriva koden i fel arbete som jag fixat
 
-## xx/xx-23
+## 31/03-23
+
+Vad gjorde du sist? 
+
+    Skrev index.js
+
+Vad ska du göra idag?
+
+    Skriva klart index.js då det gått (för) långsamt
+
+Vad hindrar dig?
+
+    

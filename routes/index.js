@@ -1,8 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const pool = require('../utils/database.js');
+const promisePool = pool.promise();
+const { post } = require('../app.js');
 
 /* GET home page. */
+
 router.get('/', function (req, res) {
     return res.json({ msg: 'Hello World' });
 });
@@ -10,7 +15,23 @@ router.get('/', function (req, res) {
 module.exports = router;
 
 router.get('/login', function (req, res, next){
-    
+    res.render('form.njk')
+});
+
+router.get('/register', async function(req, res) { 
+    res.render('register.njk', { title: 'Register'})
+}) 
+
+router.get('/profile', async function (req, res, next) {
+    if (req.session.LoggedIn) {
+        return res.render('profile.njk', {   
+            title: 'Profile', 
+            user: req.session.userId, 
+        });
+    } else {
+        
+        return res.status(401).send("Access denied");
+    }
 });
 
 //Innan login anv.namn & pw check
@@ -51,3 +72,60 @@ router.post('/login', async function (req, res, next) {
 });
 
 //Efter login anv.namn & pw check
+
+router.post('/delete', async function(req, res, next) {
+    if(req.session.LoggedIn) {
+        req.session.LoggedIn = false;
+        await promisePool.query('DELETE FROM unusers WHERE name=?', req.session.userId);
+        res.redirect('/');
+    } else {
+        return res.status(401).send("Access denied");
+    }
+});
+
+router.post('/logout', async function(req, res, next) {
+    console.log(req.session.LoggedIn);
+    if(req.session.LoggedIn) {
+    req.session.LoggedIn = false;
+    res.redirect('/');
+    } else {
+        return res.status(401).send("Access denied");
+    }
+});
+
+
+//Innan registrering
+
+router.post('/register', async function(req, res) {
+    const { username, password, passwordConfirmation } = req.body;
+    const errors = [];
+
+    if (username === "") {
+        errors.push("Username is Required")
+        return res.json(errors)
+    } else if (password === "") {
+        errors.push("Password is Required")
+        return res.json(errors)
+    } else if(password !== passwordConfirmation ){
+        errors.push("Passwords do not match")
+        return res.json(errors)
+    }
+    const [users] = await promisePool.query("SELECT * FROM unusers WHERE name=?", username);
+    if (users.length > 0) {
+        errors.push("Username is already taken")
+        return res.json(errors)
+    }
+    await bcrypt.hash(password, 10, async function (err, hash) {
+        const [rows] = await promisePool.query('INSERT INTO unusers (name, password) VALUES (?, ?)', [username, hash])
+        res.redirect('/login');
+    });
+});
+
+//Efter registrering
+
+router.get('/crypt/:pwd', async function (req, res, next) {
+    const pwd = req.params.pwd;
+    await bcrypt.hash(pwd, 10, function (err, hash) {
+        return res.json({ hash });
+    });
+});
