@@ -14,3 +14,13 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool;
+
+
+
+/*
+DB_HOST,
+DB_USER,
+DB_PASSWORD,
+DB_DATABASE,
+DATABASE_USERSTABLE,
+*/

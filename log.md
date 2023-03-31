@@ -27,4 +27,12 @@ Vad ska du göra idag?
 
 Vad hindrar dig?
 
+    Brist på kunskap och färdigheter
+
+Vad har du gjort idag? 
+
+    Skrivit klart login
+
+    Skapat sida för new post
+
     
