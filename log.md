@@ -27,7 +27,7 @@ Vad ska du göra idag?
 
 Vad hindrar dig?
 
-    Brist på kunskap och färdigheter
+    Brist på kunskap och färdigheter samt tidsoptimistisk
 
 Vad har du gjort idag? 
 
