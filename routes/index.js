@@ -8,8 +8,12 @@ const { post } = require('../app.js');
 
 /* GET home page. */
 
-router.get('/', function (req, res) {
-    res.render('index.njk', { title: 'ForumX'});
+router.get('/', async function (req, res) {
+    res.render('index.njk', {
+        rows: rows,
+        title: 'ForumX',
+    });
+    const [rows] = await promisePool.query("SELECT * FROM xxxx")
 });
 
 module.exports = router;
@@ -133,7 +137,7 @@ router.get('/crypt/:pwd', async function (req, res, next) {
 //Innan forum
 
 router.get('/forum', async function (req, res, next) {
-
+    const [rows] = await promisePool.query('SELECT * FROM xxxx')
 })
 
 //Efter forum
@@ -142,6 +146,10 @@ router.get('/forum', async function (req, res, next) {
 
 router.get('/newpost', async function (req, res, next) {
     res.render('newpost.njk', { title: 'Create new post'})
+})
+
+router.post('/newpost', async function (req, res) {
+    const [rows] = await promisePool.query('INSERT INTO xxxx (author, title, content, createdAt) VALUES (?, ?)', [author, title, content, time])
 })
 
 //Efter post

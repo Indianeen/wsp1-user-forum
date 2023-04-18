@@ -35,4 +35,22 @@ Vad har du gjort idag?
 
     Skapat sida för new post
 
-    
+## 18/04-23
+
+Vad gjorde du sist? 
+
+    Skrev klart koden för login
+
+    Skapat sida för newPost
+
+Vad ska du göra idag?
+
+    Skriva kod för att sätta ihop forumet
+
+Vad hindrar dig? 
+
+    Brist på kunskap och färdigheter samt lite väl tidsoptimistisk
+
+Vad har du gjort idag?
+
+    Skrivit delar av koden för att få ihop forumet
