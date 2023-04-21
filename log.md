@@ -54,3 +54,21 @@ Vad hindrar dig?
 Vad har du gjort idag?
 
     Skrivit delar av koden för att få ihop forumet
+
+## 21/04-23
+
+Vad gjorde du sist?
+
+    Skrev kod för att försöka sätta ihop forumet
+
+Vad ska du göra idag?
+
+    Fixa med databas och forum
+
+Vad hindrar dig?
+
+    Samma som tidigare pass
+
+Vad har du gjort idag?
+
+    Skrivit kod för forumet och fixat problemen med anslutningen till databasen.

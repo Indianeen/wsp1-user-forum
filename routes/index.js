@@ -13,7 +13,7 @@ router.get('/', async function (req, res) {
         rows: rows,
         title: 'ForumX',
     });
-    const [rows] = await promisePool.query("SELECT * FROM xxxx")
+    const [rows] = await promisePool.query("SELECT * FROM al07forum")
 });
 
 module.exports = router;
@@ -54,7 +54,7 @@ router.post('/login', async function (req, res, next) {
     }
 
     // Hämta informationen på användaren
-    const [users] = await promisePool.query("SELECT * FROM xxxx WHERE name=?", username);
+    const [users] = await promisePool.query("SELECT * FROM al07users WHERE name=?", username);
 
     // om användaren finns eller inte
     if (users.length > 0) {
@@ -80,7 +80,7 @@ router.post('/login', async function (req, res, next) {
 router.post('/delete', async function(req, res, next) {
     if(req.session.LoggedIn) {
         req.session.LoggedIn = false;
-        await promisePool.query('DELETE FROM unusers WHERE name=?', req.session.userId);
+        await promisePool.query('DELETE FROM al07users WHERE name=?', req.session.userId);
         res.redirect('/');
     } else {
         return res.status(401).send("Access denied");
@@ -114,13 +114,13 @@ router.post('/register', async function(req, res) {
         errors.push("Passwords do not match")
         return res.json(errors)
     }
-    const [users] = await promisePool.query("SELECT * FROM unusers WHERE name=?", username);
+    const [users] = await promisePool.query("SELECT * FROM al07users WHERE name=?", username);
     if (users.length > 0) {
         errors.push("Username is already taken")
         return res.json(errors)
     }
     await bcrypt.hash(password, 10, async function (err, hash) {
-        const [rows] = await promisePool.query('INSERT INTO unusers (name, password) VALUES (?, ?)', [username, hash])
+        const [rows] = await promisePool.query('INSERT INTO al07users (name, password) VALUES (?, ?)', [username, hash])
         res.redirect('/login');
     });
 });
