@@ -11,6 +11,7 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     users: process.env.DATABASE_USERSTABLE,
+    posts: process.env.DATABASE_POSTTABLE
 });
 
 module.exports = pool;

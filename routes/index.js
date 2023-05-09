@@ -9,11 +9,11 @@ const { post } = require('../app.js');
 /* GET home page. */
 
 router.get('/', async function (req, res) {
+    const [rows] = await promisePool.query("SELECT * FROM al07forum")
     res.render('index.njk', {
         rows: rows,
         title: 'ForumX',
     });
-    const [rows] = await promisePool.query("SELECT * FROM al07forum")
 });
 
 module.exports = router;
@@ -114,7 +114,9 @@ router.post('/register', async function(req, res) {
         errors.push("Passwords do not match")
         return res.json(errors)
     }
+    
     const [users] = await promisePool.query("SELECT * FROM al07users WHERE name=?", username);
+    
     if (users.length > 0) {
         errors.push("Username is already taken")
         return res.json(errors)

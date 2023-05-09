@@ -72,3 +72,17 @@ Vad hindrar dig?
 Vad har du gjort idag?
 
     Skrivit kod för forumet och fixat problemen med anslutningen till databasen.
+
+## 09/05-23
+
+Vad gjorde du sist?
+
+    Skrev kod för forum och fixade anslutningsproblemen med databasen.
+
+Vad ska du göra idag
+
+    Fixa problem med att köra programmet
+
+Vad hindrar dig
+
+    
