@@ -108,6 +108,6 @@ Vad har du gjort idag?
     Login: Fixad
     Profile: Fungerar
     Forum: Skapad
-    
+    Session: Inlagd och fungerar
 
     
