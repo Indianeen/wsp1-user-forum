@@ -124,7 +124,7 @@ router.post('/register', async function(req, res) {
     await bcrypt.hash(password, 10, async function (err, hash) {
         const [rows] = await promisePool.query('INSERT INTO al07users (name, password) VALUES (?, ?)', [username, hash])
         res.redirect('/login');
-    });
+    }); 
 });
 
 //Efter registrering
@@ -139,7 +139,11 @@ router.get('/crypt/:pwd', async function (req, res, next) {
 //Innan forum
 
 router.get('/forum', async function (req, res, next) {
-    const [rows] = await promisePool.query('SELECT * FROM xxxx')
+    res.render('forum.njk', { title: 'ForumX feed'})
+})
+
+router.post('/forum', async function (req, res) {
+    const [rows] = await promisePool.query('SELECT * FROM al07forum')
 })
 
 //Efter forum
@@ -151,7 +155,7 @@ router.get('/newpost', async function (req, res, next) {
 })
 
 router.post('/newpost', async function (req, res) {
-    const [rows] = await promisePool.query('INSERT INTO xxxx (author, title, content, createdAt) VALUES (?, ?)', [author, title, content, time])
+    const [rows] = await promisePool.query('INSERT INTO al07forum (author, title, content, createdAt) VALUES (?, ?)', [author, title, content, time])
 })
 
 //Efter post

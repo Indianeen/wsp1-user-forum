@@ -8,7 +8,7 @@ Forumet kan jag inte avgöra hur mycket som är kvar.
 
 ## Innehåll/ Beståndsdelar/ Funktioner
 
-
+Login | Registrera | Profil | Post | Delete | Säkerhet | Hosting
 
 ## Planering
 

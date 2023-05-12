@@ -99,4 +99,15 @@ Vad ska du göra idag?
 
     Skriva koden som krävs för att man ska kunna logga in på sitt konto
 
+Vad hindrar dig?
+
+
+
+Vad har du gjort idag?
+
+    Login: Fixad
+    Profile: Fungerar
+    Forum: Skapad
+    
+
     
