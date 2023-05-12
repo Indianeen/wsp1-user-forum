@@ -79,10 +79,24 @@ Vad gjorde du sist?
 
     Skrev kod för forum och fixade anslutningsproblemen med databasen.
 
-Vad ska du göra idag
+Vad ska du göra idag?
 
     Fixa problem med att köra programmet
 
-Vad hindrar dig
+Vad hindrar dig?
+
+    
+
+Vad har du gjort idag?
+
+## 12/05-23
+
+Vad gjorde du sist? 
+
+    Jag försökte få till koden så att man kunde använda sidan
+
+Vad ska du göra idag? 
+
+    Skriva koden som krävs för att man ska kunna logga in på sitt konto
 
     
