@@ -6,6 +6,10 @@ Login borde fungera när serverinfo är ifylld
 
 Forumet kan jag inte avgöra hur mycket som är kvar.
 
+## Innehåll/ Beståndsdelar/ Funktioner
+
+
+
 ## Planering
 
 ### v.17

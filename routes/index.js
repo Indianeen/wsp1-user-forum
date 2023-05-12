@@ -5,9 +5,8 @@ const bcrypt = require('bcrypt');
 const pool = require('../utils/database.js');
 const promisePool = pool.promise();
 const { post } = require('../app.js');
-
 /* GET home page. */
-
+userId = "";
 router.get('/', async function (req, res) {
     const [rows] = await promisePool.query("SELECT * FROM al07forum")
     res.render('index.njk', {
@@ -19,7 +18,7 @@ router.get('/', async function (req, res) {
 module.exports = router;
 
 router.get('/login', function (req, res, next){
-    res.render('form.njk')
+    res.render('login.njk')
 });
 
 router.get('/register', async function(req, res) { 
@@ -61,6 +60,7 @@ router.post('/login', async function (req, res, next) {
 
         bcrypt.compare(password, users[0].password, function (err, result) {
             if (result) {
+
                 req.session.userId = username;
                 req.session.LoggedIn = true;
                 return res.redirect('/profile');
