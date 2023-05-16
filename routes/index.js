@@ -143,7 +143,7 @@ router.get('/forum', async function (req, res, next) {
 })
 
 router.post('/forum', async function (req, res) {
-    const [rows] = await promisePool.query('SELECT * FROM al07forum')
+    const [rows] = await promisePool.query('SELECT al07forum.*, al07users.name FROM al07forum JOIN al07users ON al07forum.authorId = al07users.id;')
 })
 
 //Efter forum
@@ -155,7 +155,8 @@ router.get('/newpost', async function (req, res, next) {
 })
 
 router.post('/newpost', async function (req, res) {
-    const [rows] = await promisePool.query('INSERT INTO al07forum (author, title, content, createdAt) VALUES (?, ?)', [author, title, content, time])
+    const [authorId] = await promisePool.query('SELECT id FROM al07user WHERE name=?', username);
+    const [rows] = await promisePool.query('INSERT INTO al07forum (authorId, title, content, createdAt) VALUES (?, ?)', [authorId, title, content, time])
 })
 
 //Efter post

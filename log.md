@@ -110,4 +110,22 @@ Vad har du gjort idag?
     Forum: Skapad
     Session: Inlagd och fungerar
 
-    
+## 16/05-23
+
+Vad gjorde du sist?
+
+    Jag fixade så att login, register, profile och session fungerar samt skapade klassen forum
+
+Vad ska du göra idag?
+
+    Jobba på forumet och om det finns tid påbörja newPost-delen
+
+Vad hindrar dig? 
+
+    Bristande kunskap och en motvilja till att be om hjälp?
+
+Vad har du gjort idag?
+
+    Jag har jobbat på newPost och forumet i sig.
+
+##
